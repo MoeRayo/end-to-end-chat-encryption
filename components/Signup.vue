@@ -1,6 +1,7 @@
 <template>
-  <div class="bg-lightest-blue br2 mw6 w-40-m w-70 w-20-l center pa3 shadow-5">
-    <form action="">
+  <div class="ba b--light-blue bw3 vh-100 pv5 ph2 athelas">
+    <form action="" class="bg-lightest-blue br2 mw6 w-40-m w-70 w-20-l center pa3 shadow-5">
+      
       <h2 class="ttc tc">Sign up</h2>
 
       <label for="name" class="db mb1 black-70">Name</label>
@@ -17,7 +18,7 @@
 
       <button class="center db ph4 pv2 bg-navy ba br3 white pointer">Sign up</button>
       
-      <p>Already have an account? <a href="" class="black-70 b">Sign in</a> </p>
+      <p>Already have an account? <a href="/signin" class="black-70 b">Sign in</a> </p>
     </form>    
 
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ba b--light-blue bw3 vh-100 pv5 ph2 athelas">
+  <div>
     <Signup/>
   </div>
 </template>
