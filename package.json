@@ -15,6 +15,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
+    "nuxt-appwrite": "^0.3.0",
     "tachyons": "^4.12.0",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
