@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {account} from '~/init'
+import {account, signIn} from '~/init'
 
 export default Vue.extend({
   data: () => ({
@@ -43,6 +43,8 @@ export default Vue.extend({
             await account.create('unique()', this.email, this.password, this.name)
             alert("account created successfully")
 
+            signIn(this.email, this.password)
+
           } catch (e) {
             console.log(e)
           }
@@ -53,14 +55,7 @@ export default Vue.extend({
         alert("password length should be up to 8 characters")
       }
     },
-    signIn: async function (email: string, password: string) {
-      try{
-        await account.createEmailSession(email, password)
-        alert("user sign in")
-      } catch (e){
-          console.log(e)
-      }
-    }
+    
   }
   
 })
