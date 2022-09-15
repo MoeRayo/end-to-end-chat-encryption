@@ -9,7 +9,7 @@
       <label for="password" class="db mb1 black-70">Password</label>
       <input name="password" id="password" type="password" class="db mb3 w-100 br3 pa2 ba bw2" placeholder="••••••••">
 
-      <button class="center db ph4 pv2 bg-navy ba br3 white pointer">Sign up</button>
+      <button class="center db ph4 pv2 bg-navy ba br3 white pointer">Sign in</button>
       
     </form>    
 
