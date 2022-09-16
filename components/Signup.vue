@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {account, signIn} from '~/init'
+import {account} from '~/init'
 
 export default Vue.extend({
   data: () => ({
@@ -42,9 +42,7 @@ export default Vue.extend({
           try{
             await account.create('unique()', this.email, this.password, this.name)
             alert("account created successfully")
-
-            signIn(this.email, this.password)
-
+            window.location.href = '/chat'
           } catch (e) {
             console.log(e)
           }

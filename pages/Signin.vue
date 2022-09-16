@@ -1,6 +1,6 @@
 <template>
   <div class="ba b--light-blue bw3 vh-100 pv5 ph2 athelas">
-    <form @submit.prevent="signinWithEmailandPassword" class="bg-lightest-blue br2 mw6 w-40-m w-70 w-20-l center pa3 shadow-5 ">
+    <form @submit.prevent="signIn" class="bg-lightest-blue br2 mw6 w-40-m w-70 w-20-l center pa3 shadow-5 ">
       <h2 class="ttc tc">Sign In</h2>
 
       <label for="email" class="db mb1 black-70">Email</label>
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {signIn} from '~/init'
+import {account} from '~/init'
 
 export default Vue.extend({
   data: () => ({
@@ -26,8 +26,14 @@ export default Vue.extend({
     password: "",
   }),
   methods: {
-    signinWithEmailandPassword(){
-      signIn(this.email, this.password)
+    signIn: async function () {
+      try{
+        await account.createEmailSession(this.email, this.password)
+          window.location.href = '/chat'
+        alert("user signed in")
+      } catch (e){
+          console.log(e)
+      }
     }
   }
   
