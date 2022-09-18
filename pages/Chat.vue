@@ -32,7 +32,7 @@ import {client} from '~/init'
 import { Databases, ID } from 'appwrite';
 const databases = new Databases(client);
 const Cryptr = require('cryptr');
-
+const cryptr = new Cryptr('');
 export default Vue.extend({
   data: () => ({
     message: '',
@@ -42,11 +42,14 @@ export default Vue.extend({
   methods: {
     listMessages: async function (){
       let promise = await databases.listDocuments('632754bf9b28a3d032e7', '632754dccfc24bf0505e');
-      this.databaseMessages = promise.documents.map(document =>  document.message)
+
+      this.databaseMessages = promise.documents.map(document =>  cryptr.decrypt(document.message))
+      console.log(this.databaseMessages)
     }, 
     sendMessage: async function(){
+      const encryptedMessage = cryptr.encrypt(this.message)
       try {
-        await databases.createDocument('632754bf9b28a3d032e7', '632754dccfc24bf0505e', ID.unique(), {'message': this.message})
+        await databases.createDocument('632754bf9b28a3d032e7', '632754dccfc24bf0505e', ID.unique(), {'message': encryptedMessage})
         alert('message sent')
         this.message = '';
         this.listMessages()
